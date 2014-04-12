@@ -1,5 +1,5 @@
 name: RadioChat
-version: 01.00.12
+version: 01.00.13
 main: me.capit.RadioChat.RadioChat
 
 website: https://github.com/Wehttam664/RadioChat/wiki
@@ -8,7 +8,7 @@ author: Wehttam664
 preix: RadioChat
     
 commands:
-  broadcast:
+  announce:
     description: 'Broadcasts a message.'
     usage: broadcast <message>
     permission: radiochat.broadcast

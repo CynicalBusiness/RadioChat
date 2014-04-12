@@ -9,7 +9,7 @@ public class RadioChat extends JavaPlugin {
 	@Override
 	public void onEnable(){
 		CommandHandler cmdh = new CommandHandler(this);
-		getCommand("announce").setExecutor(cmdh);
+		this.getCommand("announce").setExecutor(cmdh);
 		
 		handler = new ChatEventHandler(this);
 		this.getServer().getPluginManager().registerEvents(handler, this);
