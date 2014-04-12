@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class ChatEventHandler implements Listener {
 	RadioChat plugin;
@@ -17,6 +19,16 @@ public class ChatEventHandler implements Listener {
 	
 	public enum ObfChatLevel{
 		NONE, LIGHT, HEAVY
+	}
+	
+	@EventHandler
+	public void onPlayerLogin(PlayerJoinEvent e){
+		e.setJoinMessage(null);
+	}
+	
+	@EventHandler
+	public void onPlayerLeave(PlayerQuitEvent e){
+		e.setQuitMessage(null);
 	}
 	
 	@EventHandler(priority=EventPriority.LOWEST)
