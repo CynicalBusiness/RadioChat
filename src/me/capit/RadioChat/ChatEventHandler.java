@@ -36,18 +36,18 @@ public class ChatEventHandler implements Listener {
 		Player plyr = e.getPlayer();
 		plugin.getLogger().info(plyr.getName()+": "+e.getMessage());
 		Player[] allPlayers = plugin.getServer().getOnlinePlayers();
-		plugin.getLogger().info("Trying to send to "+allPlayers.length+" players...");
+		//plugin.getLogger().info("Trying to send to "+allPlayers.length+" players...");
 		String tag = "["+plyr.getName()+"]: ";
 		String msg = e.getMessage();
-		plugin.getLogger().info("Composed "+tag+msg);
+		//plugin.getLogger().info("Composed "+tag+msg);
 		for (int i=0; i<allPlayers.length; i++){
 			Player p = allPlayers[i];
 			if (!p.getName().equalsIgnoreCase(plyr.getName())){
-				plugin.getLogger().info("Sent to "+p.getName());
+				//plugin.getLogger().info("Sent to "+p.getName());
 				Location pLoc = plyr.getLocation();
 				Location loc = p.getLocation();
 				double diff = Math.abs(pLoc.getX()-loc.getX()) + Math.abs(pLoc.getZ()-loc.getZ());
-				plugin.getLogger().info("Diff: "+diff);
+				//plugin.getLogger().info("Diff: "+diff);
 				if (diff<=plugin.getConfig().getInt("config.LIGHT_RANGE")){
 					p.sendMessage(tag+msg);
 				} else if (diff<=plugin.getConfig().getInt("config.HEAVY_RANGE")){
@@ -56,7 +56,7 @@ public class ChatEventHandler implements Listener {
 					p.sendMessage(obfusicateString(tag, ObfChatLevel.HEAVY)+obfusicateString(msg, ObfChatLevel.HEAVY));
 				}
 			} else {
-				plugin.getLogger().info("Tried to send to self. No obfusication.");
+				//plugin.getLogger().info("Tried to send to self. No obfusication.");
 				p.sendMessage(tag+msg);
 			}
 		}
@@ -65,7 +65,7 @@ public class ChatEventHandler implements Listener {
 	
 	public String obfusicateString(String string, ObfChatLevel level){
 		int charRand = 0;
-		plugin.getLogger().info("Called "+level.toString()+".");
+		//plugin.getLogger().info("Called "+level.toString()+".");
 		switch (level){
 			case LIGHT: charRand=20; break;
 			case HEAVY: charRand=40; break;
